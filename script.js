@@ -4,6 +4,22 @@ var postManager = function () {
    
     //YOUR CODE HERE
     /* You have to order the following posts by userId (Ascending) then add them in a list inside the 'container' */
+
+    /* Collect all posts */
+   var postManagerPost=postManager.prototype.posts;
+   /* Sort collected posts */
+   var sortedManagerPost=postManagerPost.sort((a, b) => a.userId - b.userId);
+   var el='<ul>'; //<-----Open the ul tag
+   sortedManagerPost.forEach(element =>{
+       var id=element.userId; //<-----Collect each post's user Id
+       var title=element.title; //<-----Collect each post's title
+       var body=element.body;  //<-----Collect each post's body
+    el+='<li>'+'<strong>'+id+'&nbsp'+title+'</strong>'+'<br>'+body+'</li>' //<-----Append list elements
+   });
+   el += "</ul>"; // <-----close the ul here
+
+   container.innerHTML= el; 
+
 };
 
 postManager.prototype.posts = [
